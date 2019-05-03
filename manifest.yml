@@ -1,0 +1,25 @@
+---
+applications:
+- name: sapcpcfhw
+  host: sapcpcfhw_P1941920920
+  path: myApp
+  buildpack: nodejs_buildpack
+  memory: 128M
+  services:
+  - sapcpcfhw-db
+  - sapcpcfhw-uaa
+- name: sapcpcfhwapr
+  host: sapcpcfhwapr_P1941920920
+  path: appRouter
+  buildpack: nodejs_buildpack
+  memory: 128M
+  env:
+    destinations: >
+      [
+        {"name":"hw-dest",
+         "url":"https://sapcpcfhw_P1941920920.cfapps.eu10.hana.ondemand.com",
+         "forwardAuthToken": true}
+      ]
+  services:
+  - sapcpcfhw-al
+  - sapcpcfhw-uaa
