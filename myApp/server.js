@@ -52,6 +52,9 @@ const url = '/users';
 const app = express();
 app.use(bodyParser.json());
 
+
+// Commented out to test if routing works without UAA
+
 /*passport.use(new JWTStrategy(xsenv.getServices({uaa:{tag:'xsuaa'}}).uaa));
 app.use(passport.initialize());
 app.use(passport.authenticate('JWT', { session: false }));*/
